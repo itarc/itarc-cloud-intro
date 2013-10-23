@@ -92,7 +92,17 @@ presentation:
     - title: INTRODUCTION AU CLOUD COMPUTING
     - subtitle: CREER UN SITE WEB APRES LE CLOUD
     - text: créer une instance
-    - text: déployer le site   
+    - text: déployer le site  
+  - slide:
+    - title: INTRODUCTION AU CLOUD COMPUTING
+    - subtitle: AVANTAGES DU CLOUD
+    - text : le coût
+    - text : la tranquilité d'esprit
+  - slide:
+    - title: INTRODUCTION AU CLOUD COMPUTING
+    - subtitle: INCONVENIENTS DU CLOUD
+    - text : la protection des données
+    - text : les changements de paradigme
   - slide:
     - title: INTRODUCTION AU CLOUD COMPUTING
     - subtitle: "LE PROBLEME DES IAAS : EROSION LOGICIELLE"
@@ -108,7 +118,7 @@ presentation:
     - title: INTRODUCTION AU CLOUD COMPUTING
     - subtitle: POUVEZ EVALUER CETTE PRESENTATION
     - evaluation: le conférencier
-    - evaluation: la contenu
+    - evaluation: le contenu
     - evaluation: la difficulté
     - form: remarques
 )
