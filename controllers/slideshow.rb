@@ -8,11 +8,29 @@ set :logging, false
 set :bind, '0.0.0.0'
 
 $teacher_current_slide = nil
+$user_id = 0
+
+require_relative '../models/Poll'
+
+enable :sessions; set :session_secret, 'secret'
+
+require_relative '../db/Accesseur'  
+$db = Accesseur.new
+
+# ---- HTTP METHODS
 
 get '/' do
 	
-  redirect "slideshow.html"
+  session[:user_id] ||= next_id
+	
+  redirect "slideshow-attendee.html"
   
+end
+
+get '/teacher' do
+	
+  redirect "slideshow-teacher.html"
+
 end
 
 post '/teacher_current_slide' do
@@ -27,34 +45,44 @@ get '/teacher_current_slide' do
   
 end
 
-def resume_poll
+get '/poll_response_*_rate_to_*' do
   
-  number_of_radios = 4
-  $poll_rate = [0] * (number_of_radios + 1)
+  PollQuestion.new(question_id).rate_for(answer).to_s
+
+end
+
+post '/poll_response_*_to_*' do
+
+  PollQuestion.new(question_id).add_a_choice(user_id, answer)
   
 end
 
-resume_poll
+post '/rating_input_*_to_*' do
 
-post '/resume_poll' do
-  
-  resume_poll
+  PollQuestion.new(question_id).add_a_choice(user_id, answer)
   
 end
 
-get '/poll_rate_*' do
+post '/select_input_*_to_*' do
 
-  index = params[:splat][0].to_i
-  $poll_rate[index].to_s
+  PollQuestion.new(question_id).add_a_choice(user_id, answer)
   
 end
 
-post '/poll_radio_*' do
+# ---- HELPERS
 
-  resume_poll
+def question_id
+  params[:splat][1]
+end
 
-  index = params[:splat][0].to_i
-  $poll_rate[index] = ( 1 / 1 ) *  100
-  #~ add return if post call is synchronous
-  
+def answer
+  params[:splat][0]
+end
+
+def user_id
+  session[:user_id]  
+end
+
+def next_id
+  $user_id += 1
 end
