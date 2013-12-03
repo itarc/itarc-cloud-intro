@@ -3,11 +3,14 @@ require 'yaml'
 
 presentation_model = YAML.load_file('presentation.yaml')
 
+require_relative 'HTMLSlide.rb'
+
 puts "
 <html>
   <head>
     <link href='slideshow.css' rel='stylesheet' media='screen'/>
     <meta name='viewport' content='user-scalable=no,width=device-width' />
+    <meta charset='utf8'>
   </head>
   <body>
   
@@ -17,13 +20,29 @@ puts "
 
 presentation_model.each do |slide_model|
 
-  require_relative 'HTMLSlide.rb'
+  slide = Slide.new
+  
+  slide_model["slide"].each do |slide_property|
 
-  title = slide_model["slide"][0]["title"]
-  subtitle = slide_model["slide"][1]["subtitle"]
-  image = slide_model["slide"][2]["image"]
+    slide_property_name = slide_property.keys[0]
+    slide_property_value = slide_property[slide_property_name]
+    
+    if slide_property_name != "poll" then
+	  
+      eval 'slide.' + slide_property_name + ' = "' + slide_property_value + '"'
+      
+    else
+	
+	slide_property_name = "question"
+	slide_property_value = slide_property_value[0][slide_property_name]
+    
+        eval 'slide.' + slide_property_name + ' = "' + slide_property_value + '"'
 
-  puts " "*6 + Slide.new(title = title, subtitle = subtitle, url = image).html
+    end
+    
+  end
+
+  puts " "*6 + slide.html
 
 end
 
