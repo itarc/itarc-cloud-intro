@@ -142,11 +142,11 @@ SlideShow.prototype = {
 	    
     this._currentIndex = this._currentIndex - 1;
 
-    this._postCurrentIndex();
-	  
     this._update();	  
 
-},
+    this._postCurrentIndex();
+
+  },
 
   next: function() {
 
@@ -154,9 +154,9 @@ SlideShow.prototype = {
 	    
     this._currentIndex = this._currentIndex + 1;
 
-    this._postCurrentIndex();
- 	  
     this._update();	  
+
+    this._postCurrentIndex();
 
   },
 
@@ -166,37 +166,8 @@ SlideShow.prototype = {
     this._update();
 
   },
-
-  handleKeys: function(e) {
-	    
-    switch (e.keyCode) {
-	      
-      case LEFT_ARROW: 
-	      
-        this.prev(); 
-	      
-      break;
-	      
-      case RIGHT_ARROW:  
-	      
-        this.next(); 
-	      
-      break;
-	      
-      case SPACE:  
-	      
-        this.synchronise(); 
-	      
-      break;	      
-	      
-    }
-
-  },
-
+  
 };
 
 
-var slideshow = new SlideShow(queryAll('.slide'));
-
-var slideshowTimer = setInterval( function(){ slideshow.synchronise(); },2000);
 
