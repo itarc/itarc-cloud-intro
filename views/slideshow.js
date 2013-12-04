@@ -142,9 +142,9 @@ SlideShow.prototype = {
 	    
     this._currentIndex = this._currentIndex - 1;
 
-    this._update();	  
-
     this._postCurrentIndex();
+
+    this._update();	  
 
   },
 
@@ -154,9 +154,9 @@ SlideShow.prototype = {
 	    
     this._currentIndex = this._currentIndex + 1;
 
-    this._update();	  
-
     this._postCurrentIndex();
+
+    this._update();	  
 
   },
 
@@ -168,6 +168,3 @@ SlideShow.prototype = {
   },
   
 };
-
-
-
