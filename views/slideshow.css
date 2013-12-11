@@ -16,7 +16,7 @@
   overflow: auto; /* gère l'apparition des scrollbar dans le bloc */
   width: 98%; /* 900px; /* largeur du bloc de texte*/
   height: 98%; /*700px; /* hauteur du bloc de texte */
-  background-color: #000; /* couleur de fond */
+  background-color: #fff; /* couleur de fond */
   /* border-radius: 15px; /* crée un coin arrondi */
   /* background: -webkit-gradient(linear, left bottom, left top, from(#ccc), to(#eee)); /* crée un dégradé sur chrome */
   /* -webkit-transition: margin 0.5s ease-in-out; /* crée un effet de transition sur chrome */
@@ -43,7 +43,7 @@
 /* -------------- Sections (General) ------------ */
 
 section {	
-  color: #ff00ff; /* text color */
+  color: #000000; /* text color */
   margin: 5%;
   overflow: hidden; /* Empécher l'affichage des scrollBar */
   font-size: 2em;
@@ -60,18 +60,18 @@ section.validate {
 /* -------------- Headers ------------ */
 
 div.slide > h1 {
-  color: #ff00ff;
+  color: #000000;
   margin: 1%; 
   font-size: 2em;
   text-align: left;
 }
 
 div.slide > h2 {
-  color: #ff00ff;
+  color: #ffffff;
   margin: 1%; 
   font-size: 2em;
   text-align: left;
-  background-color: #ffffaa;
+  background-color: orange;
 }
 
 /* -------------- Input (General) ------------ */
@@ -144,9 +144,9 @@ input[type=radio].poll_radio:checked + label {
 
 /* -------------- Rating ------------ */
 
-section.evaluate {
+div.evaluate {
   margin: 1%; 
-  font-size: 4.5em;
+  font-size: 2.5em;
   text-align: left;
 }
 
