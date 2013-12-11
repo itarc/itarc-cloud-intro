@@ -11,11 +11,11 @@
 .slide {
   display: none; /* n'affiche pas le slide et n'occupe pas la place sur l'écran (contrairement à visibility) */
   position: absolute; /* la position du bloc est calculée à partir de la position de l'élémént parent */
-  left: 5%; /* décalage à gauche par rapport à la position (absolute) */
-  top: 5%; /* décalage en haut par rapport à la position (absolute) */
+  left: 1%; /* décalage à gauche par rapport à la position (absolute) */
+  top: 1%; /* décalage en haut par rapport à la position (absolute) */
   overflow: auto; /* gère l'apparition des scrollbar dans le bloc */
-  width: 90%; /* 900px; /* largeur du bloc de texte*/
-  height: 90%; /*700px; /* hauteur du bloc de texte */
+  width: 98%; /* 900px; /* largeur du bloc de texte*/
+  height: 98%; /*700px; /* hauteur du bloc de texte */
   background-color: #000; /* couleur de fond */
   /* border-radius: 15px; /* crée un coin arrondi */
   /* background: -webkit-gradient(linear, left bottom, left top, from(#ccc), to(#eee)); /* crée un dégradé sur chrome */
