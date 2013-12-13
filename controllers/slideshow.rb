@@ -7,7 +7,7 @@ set :logging, false
 
 set :bind, '0.0.0.0'
 
-$teacher_current_slide = nil
+$teacher_current_slide = '1'
 
 require_relative '../models/Poll'
 
@@ -34,13 +34,15 @@ end
 
 post '/teacher_current_slide' do
 	
-  $teacher_current_slide = params[:index]
+  #~ $teacher_current_slide = params[:index]
+  update_current_slide_id params[:index]
   
 end
 
 get '/teacher_current_slide' do
 	
-  $teacher_current_slide
+  #~ $teacher_current_slide
+  current_slide_id
   
 end
 
@@ -106,4 +108,12 @@ end
 def next_id
   $db.execute_sql("update compteur set identifiant = identifiant + 1")
   return $db.execute_sql("select identifiant from compteur").to_a[0]['identifiant'].to_i
+end
+
+def current_slide_id
+  $db.execute_sql("select current_slide_id from teacher_current_slide").to_a[0]['current_slide_id'].to_s
+end
+
+def update_current_slide_id(current_slide_id)
+   $db.execute_sql("update teacher_current_slide set current_slide_id = '#{current_slide_id}'")
 end
