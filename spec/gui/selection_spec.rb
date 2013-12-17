@@ -61,9 +61,8 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
     find("#select_input_1_to_proposition_13").click
     find("#select_input_1_to_proposition_14").click
     find("#select_input_1_to_proposition_15").click
-    find("#select_input_1_to_proposition_16").click
     
-    expect(db_selection("#{slide}_evaluation").join).to eq "proposition_1proposition_2proposition_3proposition_4proposition_5proposition_6proposition_7proposition_8proposition_9proposition_10proposition_11proposition_12proposition_13proposition_14proposition_15proposition_16"
+    expect(db_selection("#{slide}_evaluation").join).to eq "proposition_1proposition_2proposition_3proposition_4proposition_5proposition_6proposition_7proposition_8proposition_9proposition_10proposition_11proposition_12proposition_13proposition_14proposition_15"
     
   end
   
