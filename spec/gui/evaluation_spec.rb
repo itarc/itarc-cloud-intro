@@ -13,6 +13,11 @@ TEACHER_SLIDESHOW_EVALUATION = '/teacher-x1973'
 
 describe 'Slide Evaluations', :type => :feature, :js => true do
   
+  before(:all) do
+    $db.execute_sql("delete from teacher_current_slide") 
+    $db.execute_sql("insert into teacher_current_slide values(0)") 
+  end
+
   before(:each) do
     $db.execute_sql("delete from polls") 
   end
@@ -48,9 +53,6 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
     #~ go_to(:slide_5)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
     #~ attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
@@ -70,15 +72,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_6"
 
-    #~ go_to(:slide_6)
+    #~ #go_to(:slide_6)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -96,16 +94,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_7"
 
-    #~ go_to(:slide_7)
+    #~ #go_to(:slide_7)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -123,17 +116,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_8"
 
-    #~ go_to(:slide_8)
+    #~ #go_to(:slide_8)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -151,18 +138,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_9"
 
-    #~ go_to(:slide_9)
+    #~ #go_to(:slide_9)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -180,19 +160,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_10"
 
-    #~ go_to(:slide_10)
+    #~ #go_to(:slide_10)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -210,20 +182,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_11"
 
-    #~ go_to(:slide_11)
+    #~ #go_to(:slide_11)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -241,21 +204,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_12"
 
-    #~ go_to(:slide_2)
+    #~ #go_to(:slide_2)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -273,22 +226,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_13"
 
-    #~ go_to(:slide_13)
+    #~ #go_to(:slide_13)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -306,23 +248,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_14"
 
-    #~ go_to(:slide_14)
+    #~ #go_to(:slide_14)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -340,24 +270,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_15"
 
-    #~ go_to(:slide_15)
+    #~ #go_to(:slide_15)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -375,25 +292,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_16"
 
-    #~ go_to(:slide_16)
+    #~ #go_to(:slide_16)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -411,26 +314,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_17"
 
-    #~ go_to(:slide_17)
+    #~ #go_to(:slide_17)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -448,27 +336,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_18"
 
-    #~ go_to(:slide_18)
+    #~ #go_to(:slide_18)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -486,28 +358,11 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
 
     slide="slide_19"
 
-    #~ go_to(:slide_19)
+    #~ #go_to(:slide_19)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_#{slide}_evaluation").click
@@ -521,34 +376,16 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
     
   end
   
-  it 'should evaluate slide 21' do
+  it 'should evaluate slide 21 (last slide)' do
 
     slide="slide_21"
 
-    #~ go_to(:slide_21)
+    #~ #go_to(:slide_21)
     visit TEACHER_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:arrow_right)
     find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
-    find(:css, 'div.presentation').native.send_key(:arrow_right)
     
-    #~ attendee.clik(:star_1)
+    #~ #attendee.clik(:star_1)
     visit ATTENDEE_SLIDESHOW_EVALUATION
     find(:css, 'div.presentation').native.send_key(:space)
     find("#rating_input_1_to_global_evaluation").click
@@ -565,6 +402,10 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
   after(:each) do
     $db.execute_sql("delete from polls") 
   end  
+  
+  after(:all) do
+    $db.execute_sql("delete from teacher_current_slide")     
+  end    
   
 end
 

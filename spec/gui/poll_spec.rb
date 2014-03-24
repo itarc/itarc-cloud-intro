@@ -12,9 +12,11 @@ ATTENDEE_SLIDESHOW_POLL = '/'
 TEACHER_SLIDESHOW_POLL = '/teacher-x1973'
 
 describe 'Poll with TWO QUESTIONS and only ONE ATTENDEE', :type => :feature, :js => true do
-  
+
   before(:each) do
     $db.execute_sql("delete from polls") 
+    $db.execute_sql("delete from teacher_current_slide") 
+    $db.execute_sql("insert into teacher_current_slide values(0)")     
   end
   
   it 'should display oui : 100%, non : 0% / oui : 0%, non : 0%' do
@@ -239,7 +241,8 @@ describe 'Poll with TWO QUESTIONS and only ONE ATTENDEE', :type => :feature, :js
   
   after(:each) do
     $db.execute_sql("delete from polls") 
-  end  
+    $db.execute_sql("delete from teacher_current_slide")      
+  end
   
 end
 

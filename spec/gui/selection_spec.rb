@@ -15,6 +15,8 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
   
   before(:each) do
     $db.execute_sql("delete from polls") 
+    $db.execute_sql("delete from teacher_current_slide") 
+    $db.execute_sql("insert into teacher_current_slide values(0)")     
   end
   
   it 'should evaluate slide 20' do
@@ -67,7 +69,8 @@ describe 'Slide Evaluations', :type => :feature, :js => true do
   end
   
   after(:each) do
-    #~ $db.execute_sql("delete from polls") 
+    $db.execute_sql("delete from polls") 
+    $db.execute_sql("delete from teacher_current_slide")     
   end  
   
 end  
