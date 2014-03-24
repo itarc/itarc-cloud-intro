@@ -5,7 +5,6 @@ require_relative '../../controllers/slideshow.rb'
 
 Capybara.app = Sinatra::Application.new
 
-set :public_folder, '../../views'
 set :logging, false
 
 ATTENDEE_SLIDESHOW_SELECTION = '/'
