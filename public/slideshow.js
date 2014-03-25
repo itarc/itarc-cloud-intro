@@ -20,16 +20,10 @@ var S = 83
 
 var SEPARATOR = '\n#{SEP}#\n'
 
-var queryAll = function(query) {
-  nodeList = document.querySelectorAll(query);
-  return Array.prototype.slice.call(nodeList, 0);
-};
-
-var queryNodeAll = function(node, query) {
+var queryAll = function(node, query) {
   nodeList = node.querySelectorAll(query);
   return Array.prototype.slice.call(nodeList, 0);
 };
-
 
 var postResource = function(path, params, synchronous_asynchronous) {
   var xmlhttp = new XMLHttpRequest();	
@@ -55,14 +49,14 @@ var Slide = function(node) {
 
 
 Slide.prototype = {
-  
-  _isPollResultSlide: function() {
-    return this._node.querySelectorAll('.poll_response_rate').length > 0  
-  },
-  
+
   _update: function() {
   },
   
+  _isPollResultSlide: function() {
+    return false;  
+  },
+
   _isCodingSlide: function() {
     return false;
   },   
@@ -70,8 +64,25 @@ Slide.prototype = {
   setState: function(state) {
     this._node.className = 'slide' + ((state != '') ? (' ' + state) : '');
   },
-  
-  updatePoll: function() {
+
+};
+
+// ----------------------------------
+// POLL SLIDE CLASS
+// ----------------------------------
+var PollSlide = function(node) {
+  Slide.call(this, node);
+  this._node = node;
+}
+
+PollSlide.prototype = {
+  _isPollResultSlide: function() {
+    return this._node.querySelectorAll('.poll_response_rate').length > 0  
+  },
+  savePoll: function(elementId) {
+    postResource('/'+elementId, '', ASYNCHRONOUS);
+  },   
+  _update: function() {
     rateNodes = this._node.querySelectorAll('.poll_response_rate')
     for (var i=0; i<rateNodes.length; i++) {
       rateNodeId = '#' + rateNodes[i].id;
@@ -79,13 +90,11 @@ Slide.prototype = {
       this._node.querySelector(rateNodeId).innerHTML = rateNodeValue;
     }
   },
-  
-  savePoll: function(elementId) {
-    postResource('/'+elementId, '', ASYNCHRONOUS);
-  }, 
+}
 
+for(key in Slide.prototype) {
+  if (! PollSlide.prototype[key]) PollSlide.prototype[key] = Slide.prototype[key];
 };
-
 
 // ----------------------------------
 // EDITOR
@@ -134,7 +143,7 @@ CodeHelper.prototype = {
 var CodeSlide = function(node) {
   Slide.call(this, node);
   
-  this._codeHelpers = (queryNodeAll(node, '.code_helper')).map(function(element) {
+  this._codeHelpers = (queryAll(node, '.code_helper')).map(function(element) {
     return new CodeHelper(element); 
   });
   
@@ -237,11 +246,9 @@ for(key in Slide.prototype) {
 // ----------------------------------  
 var SlideShow = function(slides) {
   this._slides = (slides).map(function(element) { 
-	  if (element.querySelector('#execute') != null) { 
-	    return new CodeSlide(element); 
-	  } else { 
-	    return new Slide(element); 
-	  };
+	  if (element.querySelector('#execute') != null) { return new CodeSlide(element); };
+	  if (element.querySelector('.poll_response_rate') != null) { return new PollSlide(element); };
+    return new Slide(element); 
   });
   this._numberOfSlides = this._slides.length;
   this._currentSlide = this._slides[this._currentIndex];
@@ -309,7 +316,6 @@ SlideShow.prototype = {
       this._show_teacher_coding_slide();
     else
       this._show_current_slide();
-    this._update_poll_slide();
     this._currentSlide._update(this._currentIndex);
     window.console && window.console.log("Refreshed with this._currentIndex = " + this._currentIndex);
   }, 

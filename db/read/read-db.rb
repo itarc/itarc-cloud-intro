@@ -2,7 +2,7 @@ require 'pg'
 require 'uri'
 
 # CONNEXION
-dev_database_url = 'postgres://postgres:postgres@localhost:5432/cloud-intro'
+dev_database_url = 'postgres://postgres:postgres@localhost:5432/powerprez'
 db = URI.parse(ENV["DATABASE_URL"] || dev_database_url)
 
 connection = PG.connect( db.host, db.port, '', '', db.path[1..-1], db.user, db.password)
@@ -41,3 +41,18 @@ read.values.each do |row|
   p row
 end
 
+puts '----- RUN EVENTS SAVE'
+read = connection.exec('select * from run_events_save order by timestamp desc')
+p read.fields
+
+read.values.each do |row|
+  p row
+end
+
+puts '----- RUN EVENTS'
+read = connection.exec('select * from run_events order by timestamp desc')
+p read.fields
+
+read.values.each do |row|
+  p row
+end
