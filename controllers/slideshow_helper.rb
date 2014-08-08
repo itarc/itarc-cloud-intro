@@ -2,6 +2,9 @@
 
 require_relative '../models/Poll'
 require_relative '../models/RunTime'
+require_relative '../models/Flip'
+
+$SEPARATOR = "\n\#{SEP}#\n"
 
 def question_id
   params[:splat][1]
@@ -20,8 +23,8 @@ def slide_index
 end
 
 def next_user_id
-  $db.execute_sql("update compteur set identifiant = identifiant + 1")
-  $db.execute_sql("select identifiant from compteur").to_a[0]['identifiant'].to_i
+  $db.execute_sql("update sessions set last_session_id = last_session_id + 1")
+  $db.execute_sql("select last_session_id from sessions").to_a[0]['last_session_id']
 end
 
 def current_slide_id
@@ -36,6 +39,6 @@ def update_current_slide_id(current_slide_id)
   if $db.execute_sql("select current_slide_id from teacher_current_slide").to_a[0] then
     $db.execute_sql("update teacher_current_slide set current_slide_id = '#{current_slide_id}'")
   else
-    $db.execute_sql("insert into teacher_current_slide values (#{current_slide_id})")
+    $db.execute_sql("insert into teacher_current_slide values ('#{ current_slide_id }')")
   end
 end

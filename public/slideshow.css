@@ -46,6 +46,10 @@ div.slide > h2 { /* Subtitle */
   text-align: left;
 }
 
+div.code_helper > h2 {  /* Helper Title */
+  margin: 0%;
+}
+
 /* -------------- Form Slide ------------ */
 
 input[type=text] {
@@ -145,22 +149,70 @@ video {
 
 /* -------------- Code Slide ------------ */
 
-textarea.code {
-  display:block;
+.code {
+  display:inline-block;	
   font-size:0.5em;
-  width:100%; 
-  height:40%;
+  width:60%; 
+  height:60%;
 }
 
-textarea.code_result {
-  display:block;	
+.code_helper {
+  display: none;	
   font-size:0.5em;
-  width:100%; 
-  height:20%;
+  width:39%; 
+  height:60%;
+  float: right;
+  overflow: auto;
 }
 
-textarea + input[type=button] {
+.code_helper.current {
+  display:inline-block;
+}
+
+.code_to_display {
+  display:none
+}
+
+.code_to_add {
+  font-family: monospace;
+  font-weight:bold;  
+  white-space: pre;
+}
+
+.code_result {
+  font-size:0.5em;
   width:100%; 
+  height:25%;
+  resize: none;
+}
+
+.code_author {
+  background: black; 
+  color: red; 
+  font-weight: bold;
+  font-size: 16px; 
+  text-align: right; 
+  width: 60%
+}
+
+input[type=button]#execute {
+  font-size: 0.5em;
+  margin: 1%;  
+}
+
+input[type=button]#send_code {
+  font-size: 0.5em;
+  margin: 1%;  
+}
+
+input[type=button]#get_code {
+  font-size: 0.5em;
+  margin: 1%;  
+}
+
+input[type=button]#get_last_send {
+  font-size: 0.5em;
+  margin: 0.2%;  
 }
 
 /* ------------------------------------------------------------------------ */
@@ -176,24 +228,31 @@ textarea + input[type=button] {
   top: 1%;
   width: 98%;
   height: 98%;
-  background-color: #fff;
-  /* border-radius: 10px; */
+  background-color: #000;
+  border-radius: 5px;
 }
 
 section {
-  color: #000000;
+  color: #ff00ff;
   font-size: 2em;
 }
 
 div.slide > h1 {  /* Title */
   font-size: 2em;
-  color: #000000;  
+  color: #ff00ff;  
 }
 
 div.slide > h2 {  /* Subtitle */
   font-size: 2em;
-  color: #ffffff;
-  background-color: orange;
+  color: #ff00ff;
+  background-color: #ffffaa;
+}
+
+div.code_helper > h2 {  /* Helper Title */
+  margin: 0%;
+  font-size: 1em;
+  color: #ff00ff;
+  background-color: #ffffaa;
 }
 
 span.rating-stars {
