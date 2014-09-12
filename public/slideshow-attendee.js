@@ -16,12 +16,7 @@ for(key in PollSlide.prototype) {
 // ATTENDEE CODE SLIDE / EXTENDS CODE SLIDE
 // ----------------------------------
 var AttendeeCodeSlide = function(node, slideshow) {
-  CodeSlide.call(this, node, slideshow);
-  
-  this._runResource = '/code_run_result';
-  this._sendResource = '/code_send_result';
-  this._getAndRunResource = '/code_get_last_send_to_blackboard'    
-  this._updateResource = '/code_last_execution'   
+  CodeSlide.call(this, node, slideshow); 
 };
 
 AttendeeCodeSlide.prototype = {
@@ -69,7 +64,6 @@ for(key in SlideShow.prototype) {
 // ----------------------------------
 // INITIALIZE SLIDESHOW
 // ----------------------------------  
-
 var attendeeSlideshow = new AttendeeSlideShow(queryAll(document, '.slide'));
 var slideshowTimer = setInterval( function(){ attendeeSlideshow._refresh(); },FLIP_ATTENDEE_GET_POSITION_FREQUENCY);
 
